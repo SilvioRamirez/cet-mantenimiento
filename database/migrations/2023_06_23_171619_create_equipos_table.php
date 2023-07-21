@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('equipos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Empleados::class);
-            $table->foreignIdFor(Dependencia::class);
+            $table->foreignIdFor(Empleados::class)->nullable();
+            $table->foreignIdFor(Dependencia::class)->nullable();
             $table->string('equipo_componente');
             $table->string('equipo_descripcion');
             $table->string('equipo_marca');

@@ -17,4 +17,18 @@ class Dependencia extends Model
     protected $fillable = [
         'depen_nombre', 'depen_num_interno', 'depen_nivel', 'depen_piso', 'depen_abreviacion', 'depen_empleado', 'depen_status'
     ];
+
+    //Define las relaciones a la inversa ->las que tiene dependencia con usuario
+    
+    public function empleados()
+    {
+        //Una dependencia pertene a un empleado
+        return $this->belongsTo(Empleados::class);
+    }
+
+    public function equipos()
+    {
+        //Una dependencia puede tener multiples equipos asociados
+        return $this->hasMany(Equipos::class);
+    }
 }

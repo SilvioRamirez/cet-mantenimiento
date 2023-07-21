@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="text-center">
+        <div class="text-center"><br>
             <h1><i class="fa fa-users"></i>&nbsp;Administración de Usuarios</h1>
         </div><br>
         @can('user-create')
             <div class="pull-right mt-2 mb-2">
-                <a class="btn btn-outline-primary btn-lg" href="{{ route('users.create') }}"><i class="fa fa-user-plus"></i> {{ __('Create New User')}}</a>
+                <a class="btn btn-outline-success btn-lg" href="{{ route('users.create') }}"><i class="fa fa-user-plus"></i> {{ __('Create New User')}}</a>
             </div>
         @endcan
     </div>
@@ -43,10 +43,10 @@
             <td class="text-center">
                 <div class="btn-group" role="group" aria-label="Opciones">
                     @can('user-list')
-                        <a class="btn btn-outline-success btn-sm" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
                     @endcan &nbsp;&nbsp;
                     @can('user-edit')
-                        <a class="btn btn-outline-warning btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pen-to-square"></i> {{ __('')}}</a>
+                        <a class="btn btn-outline-success btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-edit"></i> {{ __('')}}</a>
                     @endcan &nbsp;&nbsp;
                     @can('user-delete')
                         <a class="btn btn-outline-danger btn-sm" href="{{ route('users.delete',$user->id) }}"><i class="fa fa-trash"></i> {{ __('')}}</a>
@@ -56,8 +56,5 @@
         </tr>
     @endforeach
 </table>
-
 {!! $data->render() !!}
-<p class="text-center text-primary"><small>By silvio.ramirez.m@gmail.com</small></p>
-
 @endsection

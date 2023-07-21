@@ -17,7 +17,6 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    
     <div id="app">
         
         @include('layouts.nav')
@@ -33,10 +32,8 @@
         </main>
 
         @include('layouts.footer')
-          
+        @stack('scripts')
     </div>
-<script>
 
-</script>
 </body>
 </html>

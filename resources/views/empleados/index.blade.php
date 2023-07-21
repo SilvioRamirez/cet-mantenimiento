@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 margin-tb"><br>
             <div class="text-center">
-                <h1><i class="fa-solid fa-user-tie"></i>&nbsp;Administración de Empleados</h1>
+                <h1><i class="fa fa-user-tie"></i>&nbsp;Administración de Empleados</h1>
             </div><br>
             @can('empleados-create')
                 <div class="pull-right mb-2">
-                    <a class="btn btn-outline-primary btn-lg" href="{{ route('empleados.create') }}"><i class="fa fa-plus"></i> Crear Nuevo Empleado</a>
+                    <a class="btn btn-outline-success btn-lg" href="{{ route('empleados.create') }}"><i class="fa fa-plus"></i> Crear Nuevo Empleado</a>
                 </div>
             @endcan
         </div>
@@ -38,10 +38,10 @@
          <td>
             <div class="btn-group" role="group" aria-label="Opciones">
                 @can('empleado-list')
-                    <a class="btn btn-outline-success btn-sm" href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
+                    <a class="btn btn-outline-primary btn-sm" href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
                 @can('empleado-edit')
-                    <a class="btn btn-outline-warning btn-sm" href="{{ route('empleados.edit',$empleado->id) }}"><i class="fa fa-pen-to-square"></i> {{ __('')}}</a>
+                    <a class="btn btn-outline-success btn-sm" href="{{ route('empleados.edit',$empleado->id) }}"><i class="fa fa-edit"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
                 @can('empleado-delete')
                     <a class="btn btn-outline-danger btn-sm" href="{{ route('empleados.delete',$empleado->id) }}"><i class="fa fa-trash"></i> {{ __('')}}</a>
@@ -52,5 +52,4 @@
      @endforeach
     </table>
     {!! $empleados->links() !!}
-<p class="text-center text-primary"><small>By Contraloría del Estado Trujillo</small></p>
 @endsection

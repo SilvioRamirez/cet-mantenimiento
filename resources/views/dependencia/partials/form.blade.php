@@ -37,11 +37,18 @@
     </div>
 		<div class="col-xs-12 col-sm-12 col-md-4">
 			<div class="form-group">
-							<strong>Status:</strong>
-							<input class="form-check-input" type="checkbox" name="depen_status">
+                <label>
+                    Status:
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" name="depen_status" type="checkbox" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Activo
+                    </label>
+                  </div>
 			</div>
 		</div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center"><br>
-        {!! Form::button('<i class="fa fa-save"></i> '.__('Save'), ['type' => 'submit', 'class' => 'btn btn-outline-primary'] )  !!}
+        {!! Form::button('<i class="fa fa-save"></i> '.__('Save'), ['type' => 'submit', 'class' => 'btn btn-outline-success'] )  !!}
     </div>
 </div>

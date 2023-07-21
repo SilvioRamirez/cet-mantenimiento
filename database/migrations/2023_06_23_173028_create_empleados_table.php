@@ -1,6 +1,4 @@
 <?php
-use App\Models\Dependencia;
-use App\Models\Equipos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +12,6 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Equipos::class);
-            $table->foreignIdFor(Dependencia::class);
             $table->string('empleado_cedula');
             $table->string('empleado_nombre');
             $table->string('empleado_cargo');

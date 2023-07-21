@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateDependenciaRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+
 class DependenciaController extends Controller
 {
        /**

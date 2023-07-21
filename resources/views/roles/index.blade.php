@@ -1,14 +1,16 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
+        <br>
         <div class="text-center">
-            <h1><i class="fa fa-users-gear"></i> Administración de Roles</h1>
+            <h1><i class="fa fa-users-cog"></i> Administración de Roles & Permisos</h1>
         </div>
         @can('role-create')
+        <br>
             <div class="pull-right mt-2 mb-2">
-                <a class="btn btn-outline-primary btn-lg" href="{{ route('roles.create') }}"><i class="fa fa-user-plus"></i> {{ __('Create New Role')}}</a>
+                <a class="btn btn-outline-success btn-lg" href="{{ route('roles.create') }}"><i class="fa fa-user-plus"></i> {{ __('Create New Role')}}</a>
             </div>
         @endcan
     </div>
@@ -16,7 +18,7 @@
 
 @include('fragment.error')
 @include('fragment.success')
-
+<br>
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
@@ -32,10 +34,10 @@
         <td class="text-center">
             <div class="btn-group" role="group" aria-label="Opciones">
                 @can('role-list')
-                    <a class="btn btn-outline-success btn-sm" href="{{ route('roles.show',$role->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
+                    <a class="btn btn-outline-primary btn-sm" href="{{ route('roles.show',$role->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp; 
                 @can('role-edit')
-                    <a class="btn btn-outline-warning btn-sm" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-pen-to-square"></i> {{ __('')}}</a>
+                    <a class="btn btn-outline-success btn-sm" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-edit"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp; 
                 @can('role-delete')
                     <a class="btn btn-outline-danger btn-sm" href="{{ route('roles.delete',$role->id) }}"><i class="fa fa-trash"></i> {{ __('')}}</a>
@@ -47,6 +49,6 @@
 </table>
 
 {!! $roles->render() !!}
-<p class="text-center text-primary"><small>By Contraloría del Estado Trujillo</small></p>
+
 
 @endsection

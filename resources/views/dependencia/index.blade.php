@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 margin-tb"><br>
             <div class="text-center">
-                <h1><i class="fa-solid fa-building"></i>&nbsp;Administración de Dependencias</h1>
+                <h1><i class="fa fa-building"></i>&nbsp;Administración de Dependencias</h1>
             </div><br>
             @can('dependencia-create')
                 <div class="pull-right mb-2">
-                    <a class="btn btn-outline-primary btn-lg" href="{{ route('dependencia.create') }}"><i class="fa fa-plus"></i> Crear Nueva Dependencia</a>
+                    <a class="btn btn-outline-success btn-lg" href="{{ route('dependencia.create') }}"><i class="fa fa-plus"></i> Crear Nueva Dependencia</a>
                 </div>
             @endcan
         </div>
@@ -38,10 +38,10 @@
          <td class="text-center">
             <div class="btn-group" role="group" aria-label="Opciones">
                 @can('depen-list')
-                    <a class="btn btn-outline-success btn-sm" href="{{ route('dependencia.show',$dependencia->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
+                    <a class="btn btn-outline-primary btn-sm" href="{{ route('dependencia.show',$dependencia->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
                 @can('depen-edit')
-                    <a class="btn btn-outline-warning btn-sm" href="{{ route('dependencia.edit',$dependencia->id) }}"><i class="fa fa-pen-to-square"></i> {{ __('')}}</a>
+                    <a class="btn btn-outline-success btn-sm" href="{{ route('dependencia.edit',$dependencia->id) }}"><i class="fa fa-edit"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
                 @can('depen-delete')
                     <a class="btn btn-outline-danger btn-sm" href="{{ route('dependencia.delete',$dependencia->id) }}"><i class="fa fa-trash"></i> {{ __('')}}</a>
@@ -52,5 +52,5 @@
      @endforeach
     </table>
     {!! $dependencias->links() !!}
-<p class="text-center text-primary"><small>By Contraloría del Estado Trujillo</small></p>
+
 @endsection

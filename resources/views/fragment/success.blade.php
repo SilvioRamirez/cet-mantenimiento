@@ -1,13 +1,10 @@
 @if($message = Session::get('success'))
-    <div class="alert alert-dismissible alert-success">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <x-adminlte-alert theme="success" title="Éxito">
         {{ $message }}
-    </div>        
+    </x-adminlte-alert>
 @endif
-
 @if(Session::has('info'))
-		<div class="alert alert-info">
-			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			{{ Session::get('info')}}
-		</div>
+    <x-adminlte-alert theme="info" title="Información">
+        {{ Session::get('info')}}
+    </x-adminlte-alert>
 @endif
