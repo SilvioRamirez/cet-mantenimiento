@@ -7,8 +7,12 @@
             </div><br>
         </div>
     </div>
+    <div class="row">
+      <button class="btn btn-primary" id="iniciarCalendario" onclick="iniciarCalendario()">Iniciar</button>
+    </div>
      <!-- fullcalendar -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
+
+ 
 
     
         <div class="container">
@@ -30,8 +34,7 @@
         </button>
       </div>
       <div class="modal-body">
-         <form action="">
-          {!! csrf_field()!!}
+         <form action="" id="eventForm">
             <div class="form-group">
                 <label for="id">ID</label>
                 <input type="text" class="form-control" name="id" id="id" placeholder="">
@@ -65,37 +68,111 @@
   </div>
 </div>
 @endsection
-@push('scripts')
 
+@push('js')
+
+{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/locales-all.js"></script>
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/locales-all.js"></script> --}}
 
-      document.addEventListener('DOMContentLoaded', function() {
-        let formulario = document.querySelector("form");
+<script src='storage/js/index.global.min.js'></script>
+
+<script type="module">
+
+    var SITEURL = "{{ url('/') }}";
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      
+        let formulario = document.getElementById("eventForm");
         var calendarEl = document.getElementById('calendariosoftware');
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          locale:"es",
           headerToolbar:{
             left:'prev,next today',
             center: 'title',
             right:'dayGridMonth,timeGridWeek,listWeek'
           },
+          initialView: 'dayGridMonth',
+          events: SITEURL + "/calendar-event",
+          editable: true,
+          displayEventTime: true,
+          selectable: true,
+          selectHelper: true,
+          eventRender: function (event, element, view) {
+                    if (event.allDay === 'true') {
+                        event.allDay = true;
+                    } else {
+                        event.allDay = false;
+                    }
+                },                
+                eventDrop: function (event, delta) {
+                    var event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
+                    var event_end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
+                    $.ajax({
+                        url: SITEURL + '/calendar-crud-ajax',
+                        data: {
+                            title: event.event_name,
+                            start: event_start,
+                            end: event_end,
+                            id: event.id,
+                            type: 'edit'
+                        },
+                        type: "POST",
+                        success: function (response) {
+                            displayMessage("Event updated");
+                        }
+                    });
+                },
+                eventClick: function (event) {
+                    var eventDelete = confirm("Are you sure?");
+                    if (eventDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: SITEURL + '/calendar-crud-ajax',
+                            data: {
+                                id: event.id,
+                                type: 'delete'
+                            },
+                            success: function (response) {
+                                calendar.fullCalendar('removeEvents', event.id);
+                                displayMessage("Event removed");
+                            }
+                        });
+                    }
+                }
+
           dateClick:function(info){
             $("#evento").modal("show");
           }
 
         });
         calendar.render();
+
+        /* Funcion Para guardar el formulario de nuevo evento */
         document.getElementById("btnGuardar").addEventListener("click",function(){
             const datos= new FormData(formulario);
             console.log(datos);
-            axios.post("/softwarecalendario/{softwarecalendario}/agregar", datos).then((repuesta)=>{
-              $("#evento").modal("hide");
-            });
-        });
-      });
 
-    </script>
-    @endpush
+            var url = '/softwarecalendario/store';
+            axios
+            .post(url, datos)
+            .then(response => {
+                  let status = response.data.status;
+                  let message = response.data.message;
+                  alert (message, status);
+                  $('#evento').modal('hide');
+                  /* familiarsreload() */
+                /* toastr.success('Familiar agregado con exito.'); */
+            })
+            .catch(error => {                  
+                  if(error.response){
+                    console.log(error.response.data.errors)
+                    alert (error.response.data.message)
+                  }
+          });
+        });
+
+      });
+</script>
+
+@endpush

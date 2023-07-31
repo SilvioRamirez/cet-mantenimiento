@@ -74,7 +74,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('software', SoftwareController::class);
 
     //Rutas de Software Calendario
-    Route::post('/softwarecalendario/{softwarecalendario}/store',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store');
+    Route::post('/softwarecalendario/store',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store');
+    //Route::get('/softwarecalendario/events', [CalenderController::class, 'events']);
+
+    Route::get('calendar-event', [SoftwareCalendarioController::class, 'events']);
+    Route::post('calendar-crud-ajax', [SoftwareCalendarioController::class, 'calendarEvents']);
+
     Route::resource('softwarecalendario', SoftwareCalendarioController::class);
     
     //Rutas de Informe Tecnico

@@ -5,6 +5,8 @@ use App\Models\SoftwareCalendario;
 use App\Http\Requests\StoreSoftwareCalendarioRequest;
 use App\Http\Requests\UpdateSoftwareCalendarioRequest;
 
+use Illuminate\Http\Request;
+
 class SoftwareCalendarioController extends Controller
 {
 
@@ -23,11 +25,25 @@ class SoftwareCalendarioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    /* public function index()
     {
         //$softwarecalendario = SoftwareCalendario::latest()->paginate(5);
         return view('softwarecalendario.index');
+    } */
+
+    public function index(Request $request)
+    {
+        return view('softwarecalendario.index');
     }
+
+    public function events(Request $request)
+    {
+            $data = SoftwareCalendario::whereDate('start', '>=', $request->start)
+                ->whereDate('end',   '<=', $request->end)
+                ->get(['id', 'title', 'descripcion', 'start', 'end']);
+            return response()->json($data);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,9 +58,22 @@ class SoftwareCalendarioController extends Controller
      */
     public function store(StoreSoftwareCalendarioRequest $request)
     {
-        //
-        request()->validate(SoftwareCalendario::$rules);
-        $evento=SoftwareCalendario::create($request->all());
+        if(request()->validate(SoftwareCalendario::$rules)){
+            
+            if(SoftwareCalendario::create($request->all())){
+                return response()->json([
+                    'status' => 'OK',
+                    'message' => 'Datos agregados correctamente.',
+                    'cod' => 201
+                ]);
+            }else{
+                return response()->json([
+                    'status' => 'Error',
+                    'message' => 'Ocurrio un error al registrar la información.',
+                    'cod' => 400
+                ]);
+            }
+        }
     }
 
     /**
