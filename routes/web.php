@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function() {
     //Route::get('/dependencia/{dependencia}/delete',[DependenciaController::class, 'delete'])->name('dependencia.delete');
     //Route::resource('dependencia', DependenciaController::class);
     
+    Route::get('/dependencia/list',[DependenciaController::class, 'list'])->name('dependencia.list');
+
     //Rutas de Empleados
     //Route::get('/empleados/{empleados}/delete',[EmpleadosController::class, 'delete'])->name('empleados.delete');
     //Route::resource('empleados', EmpleadosController::class);
@@ -91,7 +93,6 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/sidebar', function () {
     return view('sidebar');
 });
-Auth::routes();
 
 Route::get('/home', function() {
     return view('home');

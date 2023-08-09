@@ -11,7 +11,7 @@ class SoftwareCalendario extends Model
 
     static $rules= [
         'title'=>'required',
-        'descripcion'=>'required',
+        'descripcion'=>'',
         'start'=>'required',
         'end'=>'required'
     ];
