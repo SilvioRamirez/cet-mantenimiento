@@ -9,12 +9,13 @@ class SoftwareCalendario extends Model
 {
     use HasFactory;
 
-    static $rule= [
+    static $rules= [
         'title'=>'required',
-        'descripcion'=>'required',
+        'descripcion'=>'',
         'start'=>'required',
         'end'=>'required'
     ];
+
     protected $fillable= [
         'title',
         'descripcion',

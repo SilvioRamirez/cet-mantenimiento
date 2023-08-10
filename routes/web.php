@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function() {
     //Route::get('/dependencia/{dependencia}/delete',[DependenciaController::class, 'delete'])->name('dependencia.delete');
     //Route::resource('dependencia', DependenciaController::class);
     
+    Route::get('/dependencia/list',[DependenciaController::class, 'list'])->name('dependencia.list');
+
     //Rutas de Empleados
     //Route::get('/empleados/{empleados}/delete',[EmpleadosController::class, 'delete'])->name('empleados.delete');
     //Route::resource('empleados', EmpleadosController::class);
@@ -75,7 +77,12 @@ Route::group(['middleware' => ['auth']], function() {
     //Rutas de Software PDF
     Route::get('/software/pdf', [SoftwareController::class, 'pdf'])->name('software.pdf');
     //Rutas de Software Calendario
-    Route::post('/softwarecalendario/{softwarecalendario}/store',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store');
+    Route::post('/softwarecalendario/store',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store');
+    //Route::get('/softwarecalendario/events', [CalenderController::class, 'events']);
+
+    Route::get('calendar-event', [SoftwareCalendarioController::class, 'events']);
+    Route::post('calendar-crud-ajax', [SoftwareCalendarioController::class, 'calendarEvents']);
+
     Route::resource('softwarecalendario', SoftwareCalendarioController::class);
     
     //Rutas de Informe Tecnico
@@ -87,7 +94,6 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/sidebar', function () {
     return view('sidebar');
 });
-Auth::routes();
 
 Route::get('/home', function() {
     return view('home');

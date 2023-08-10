@@ -23,7 +23,8 @@ class DependenciaController extends Controller
          $this->middleware('permission:depen-edit',   ['only' => ['edit','update']]);
          $this->middleware('permission:depen-delete', ['only' => ['destroy']]);
     }
-        /**
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,6 +35,19 @@ class DependenciaController extends Controller
         return view('dependencia.index',compact('dependencias'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $dependencias = Dependencia::all();
+        return response()->json($dependencias);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      * 
