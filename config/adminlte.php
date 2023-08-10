@@ -133,7 +133,7 @@ return [
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-success',
     'usermenu_image' => true,
-    'usermenu_desc' => true,
+    'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
     /*
@@ -363,11 +363,11 @@ return [
             'can' => 'roles-list'
         ],
         //[
-            //'text' => 'Empleados',
-            //'url'  => 'empleados',
-            //'icon' => 'fas fa-fw fa-user-tie',
-            //'can' => 'empleados-list'
-       // ],
+            //'text' => 'Reportes',
+            //'url'  => 'reportes',
+            //'icon' => 'fas fa-fw fa-book',
+            //'can' => 'reportes-list'
+       //],
        // [
             //'text' => 'Equipos',
             //'url'  => 'equipos',

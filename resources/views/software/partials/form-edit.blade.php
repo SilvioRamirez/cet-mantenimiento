@@ -3,19 +3,19 @@
 									<div class="col-xs-6 col-md-4">
 										<div class="form-group label-floating">
 											  <label class="control-label">Fecha del Mantenimiento</label>
-											  <input class="form-control" type="date" name="software_fecha">
+											  {!! Form::date('software_fecha', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>								
 									<div class="col-xs-6 col-md-4">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Funcionario de Soporte Técnico</label>
-											 	<input class="form-control" type="text" name="software_funcionario">
+												 {!! Form::text('software_funcionario', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 									<div class="col-xs-6 col-md-4">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Cargo</label>
-											 	<input class="form-control" type="text" name="software_cargo">
+												 {!! Form::text('software_cargo', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 								</div><br>
@@ -24,44 +24,44 @@
 									<div class="col-xs-6 col-md-4">
 										<div class="form-group label-floating">
 											  <label class="control-label">Código del Bien</label>
-											  <input class="form-control" type="text" name="software_bienes">
+												{!! Form::text('software_bienes', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>								
 									<div class="col-xs-6 col-md-4">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Dependencia</label>
-											 	<input class="form-control" type="text" name="software_dependencia">
+											 	{!! Form::text('software_dependencia', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 									<div class="col-xs-6 col-md-4">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Encargado</label>
-											 	<input class="form-control" type="text" name="software_encargado">
+											 	{!! Form::text('software_encargado', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 									
 									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											  <label class="control-label">Equipo</label>
-											  <input class="form-control" type="text" name="software_equipo">
+											  {!! Form::text('software_equipo', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>								
 									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Marca</label>
-											 	<input class="form-control" type="text" name="software_marca">
+											 	{!! Form::text('software_marca', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Serial</label>
-											 	<input class="form-control" type="text" name="software_serial">
+											 	{!! Form::text('software_serial', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Color</label>
-											 	<input class="form-control" type="text" name="software_color">
+											 	{!! Form::text('software_color', null, array('class' => 'form-control')) !!}
 										</div>
 									</div>
 								</div>	
@@ -70,7 +70,7 @@
 									<legend><i class="fas fa-tools"></i> &nbsp;Tipo de Soporte Técnico</legend>
 									<div class="col-12 col-md-6">
 									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_antivirus" id="antivirus" />
+										<input class="form-check-input" type="checkbox" value="si" name="software_antivirus" id="antivirus" />
   									<label class="form-check-label" for="antivirus">&nbsp; Actualización del Antivirus</label>
 									</div>
 									<br>

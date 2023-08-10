@@ -11,7 +11,7 @@
 
     <div class="card border-light mb-3 shadow">
         <div class="card-header bg-success text-white"><i class="fa fa-building"></i>&nbsp; 
-            {{ __('Create New')}} Mantenimiento 
+            {{ __('Crear Nuevo')}} Mantenimiento 
         </div>
         <div class="card-body">
 

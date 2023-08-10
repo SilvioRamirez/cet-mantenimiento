@@ -72,7 +72,8 @@ Route::group(['middleware' => ['auth']], function() {
     //Rutas de Software
     Route::get('/software/{software}/delete',[SoftwareController::class, 'delete'])->name('software.delete');
     Route::resource('software', SoftwareController::class);
-
+    //Rutas de Software PDF
+    Route::get('/software/pdf', [SoftwareController::class, 'pdf'])->name('software.pdf');
     //Rutas de Software Calendario
     Route::post('/softwarecalendario/{softwarecalendario}/store',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store');
     Route::resource('softwarecalendario', SoftwareCalendarioController::class);
