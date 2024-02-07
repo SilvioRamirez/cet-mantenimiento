@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('hardware_calendarios', function (Blueprint $table) {
             $table->id();
-            $table->string ('evento');
-            $table->datetime('start_date');
-            $table->datetime('end_date');
+            $table->string("title",255);
+            $table->string("descripcion");
+            $table->dateTime("start");
+            $table->dateTime("end");
             $table->timestamps();
         });
     }

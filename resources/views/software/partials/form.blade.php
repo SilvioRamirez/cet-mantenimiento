@@ -21,25 +21,30 @@
 								</div><br>
 								<div class="row">
 									<legend><i class="fas fa-laptop"></i> &nbsp;Descripción del Equipo</legend>
-									<div class="col-xs-6 col-md-4">
+									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											  <label class="control-label">Código del Bien</label>
 											  <input class="form-control" type="text" name="software_bienes">
 										</div>
 									</div>								
-									<div class="col-xs-6 col-md-4">
+									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Dependencia</label>
 											 	<input class="form-control" type="text" name="software_dependencia">
 										</div>
 									</div>
-									<div class="col-xs-6 col-md-4">
+									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											 	<label class="control-label">Encargado</label>
 											 	<input class="form-control" type="text" name="software_encargado">
 										</div>
 									</div>
-									
+									<div class="col-xs-6 col-md-3">
+										<div class="form-group label-floating">
+											 	<label class="control-label">Cargo del Encargado</label>
+											 	<input class="form-control" type="text" name="software_cargoencargado">
+										</div>
+									</div>
 									<div class="col-xs-6 col-md-3">
 										<div class="form-group label-floating">
 											  <label class="control-label">Equipo</label>
@@ -68,54 +73,83 @@
 								<br>
 								<div class="row">
 									<legend><i class="fas fa-tools"></i> &nbsp;Tipo de Soporte Técnico</legend>
-									<div class="col-12 col-md-6">
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_antivirus" id="antivirus" />
-  									<label class="form-check-label" for="antivirus">&nbsp; Actualización del Antivirus</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_respaldo" id="respaldodatos" />
-  									<label class="form-check-label" for="respaldodatos">&nbsp; Respaldo de Datos</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_recuperacion" id="recuperacion" />
-  									<label class="form-check-label" for="recuperacion">&nbsp; Recuperación de Información</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_programas" id="programas" />
-  									<label class="form-check-label" for="programas">&nbsp; Instalación de Programas y Paquetes</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_discoduro" id="discoduro" />
-  									<label class="form-check-label" for="discoduro">&nbsp; Liberación de Espacio en el Disco Duro</label>
-									</div>
-
+									<div class="col-12 col-md-4">
+										<div class="form-group">
+                			<label for="software_antivirus">Instalación del Antivirus</label>                
+                			<select id="software_antivirus" name="software_antivirus" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              			</div>
+									<div class="form-group">
+                			<label for="software_analisisvirus"> Analisis del Antivirus</label>                
+                			<select id="software_analisisvirus" name="software_analisisvirus" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
+									<div class="form-group">
+                			<label for="software_red">Revisión de la Configuración de la Red</label>                
+                			<select id="software_red" name="software_red" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
 								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_analisisvirus" id="analisisvirus" />
-  									<label class="form-check-label" for="analisisvirus">&nbsp; Análisis del Disco con el Antivirus</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_formateo" id="formateo" />
-  									<label class="form-check-label" for="formateo">&nbsp; Formateo del Equipo</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_red" id="red" />
-  									<label class="form-check-label" for="red">&nbsp; Revisión de la Configuración de la Red</label>
-									</div>
-									<br>
-									<div class="form-check">
-  									<input class="form-check-input" type="checkbox" value="si" name="software_desfragmentacion" id="desfragmentacion" />
-  									<label class="form-check-label" for="desfragmentacion">&nbsp; Desfragmentación del Disco Duro</label>
-									</div>
-									<br>
+								<div class="col-12 col-md-4">
+									<div class="form-group">
+                			<label for="software_respaldo">Respaldo de Datos</label>                
+                			<select id="software_respaldo" name="software_respaldo" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
+									<div class="form-group">
+                			<label for="software_recuperacion">Recuperación de Información</label>                
+                			<select id="software_recuperacion" name="software_recuperacion" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
+									<div class="form-group">
+                			<label for="software_programas">Instalacion de Programas y Paquetes</label>                
+                			<select id="software_programas" name="software_programas" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group">
+                			<label for="software_formateo">Formateo del Equipo</label>                
+                			<select id="software_formateo" name="software_formateo" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
+									<div class="form-group">
+                			<label for="software_desfragmentacion">Desfragmentación de Disco</label>                
+                			<select id="software_desfragmentacion" name="software_desfragmentacion" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
+									<div class="form-group">
+                			<label for="software_discoduro">Liberación de Espacio en el Disco</label>                
+                			<select id="software_discoduro" name="software_discoduro" class="form-select">
+                  			<option disabled selected="">Seleccione</option>
+												<option value="si">Sí</option>
+												<option value="no">No</option>
+                			</select>
+              		</div>
 								</div>
 							</div>
 								<br>

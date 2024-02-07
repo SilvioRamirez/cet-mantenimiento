@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateInformesTecnicosRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InformesTecnicosController extends Controller
 {
@@ -28,11 +29,18 @@ class InformesTecnicosController extends Controller
      */
     public function index()
     {
-        $informes = InformesTecnicos::latest()->paginate(5);
+        $informes = InformesTecnicos::latest()->paginate(10);
         return view('informe.index',compact('informes'))
-        ->with('i', (request()->input('page', 1) - 1) * 5); 
+        ->with('i', (request()->input('page', 1) - 1) * 10); 
     }
+    public function pdf($id)
+    {
+        $image = '/img/logo.png';
+        $informe = InformesTecnicos::find($id);
+        $pdf = Pdf::loadView('informe.pdf', compact('informe','image'));
+        return $pdf->stream();
 
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -62,9 +70,7 @@ class InformesTecnicosController extends Controller
                     'informe_caracteristicas' => 'required',
                     'informe_falla' => 'required',
                     'informe_diagnostico' => 'required',
-                    'informe_trabajo_realizado' => 'required',
-                    'informe_observaciones' => 'required',
-                    'informe_recomendaciones' => 'required',
+                    'informe_trabajo_realizado' => 'required'
         ]);
     
         InformesTecnicos::create($request->all());
@@ -80,7 +86,7 @@ class InformesTecnicosController extends Controller
         $informes = InformesTecnicos::find($id);
         return view('informe.show',compact('informes'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -111,9 +117,7 @@ class InformesTecnicosController extends Controller
             'informe_caracteristicas' => 'required',
             'informe_falla' => 'required',
             'informe_diagnostico' => 'required',
-            'informe_trabajo_realizado' => 'required',
-            'informe_observaciones' => 'required',
-            'informe_recomendaciones' => 'required'
+            'informe_trabajo_realizado' => 'required'
             
         ]);
     

@@ -19,14 +19,6 @@
                 {{ $dependencia->depen_abreviacion }}
             </div>
             <div class="form-group">
-                <strong>{{ __('Encargado')}}:</strong>
-                {{ $dependencia->depen_empleado }}
-            </div>
-            <div class="form-group">
-                <strong>{{ __('Nivel')}}:</strong>
-                {{ $dependencia->depen_nivel }}
-            </div>
-            <div class="form-group">
                 <strong>{{ __('N° Interno')}}:</strong>
                 {{ $dependencia->depen_num_interno }}
             </div>

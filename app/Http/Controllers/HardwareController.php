@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateHardwareRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class HardwareController extends Controller
 {
@@ -28,12 +29,20 @@ class HardwareController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $hardwares = Hardware::latest()->paginate(5);
+    {   
+       
+        $hardwares = Hardware::latest()->paginate(10);
         return view('hardware.index',compact('hardwares'))
-        ->with('i', (request()->input('page', 1) - 1) * 5); 
+        ->with('i', (request()->input('page', 1) - 1) * 10); 
     }
+    public function pdf($id)
+    {
+        $image = '/img/logo.png';
+        $hardware = Hardware::find($id);
+        $pdf = Pdf::loadView('hardware.pdf', compact('hardware','image'));
+        return $pdf->stream();
 
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -54,6 +63,7 @@ class HardwareController extends Controller
 					'hardware_bienes'=> 'required',
 					'hardware_dependencia'=> 'required',
 					'hardware_encargado'=> 'required',
+                    'hardware_cargoencargado'=> 'required',
 					'hardware_equipo'=> 'required',
 					'hardware_marca'=> 'required',
 					'hardware_serial'=> 'required',
@@ -68,10 +78,10 @@ class HardwareController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Hardware $hardware)
+    public function show($id): View
     {
-			$hardwares = Hardware::find($id);
-			return view('hardware.show',compact('hardwares'));
+			$hardware = Hardware::find($id);
+			return view('hardware.show',compact('hardware'));
     }
 
     /**
@@ -79,14 +89,14 @@ class HardwareController extends Controller
      */
     public function edit($id): View
     {
-        $hardwares = Hardware::find($id);
-        return view('hardware.edit',compact('hardwares'));
+        $hardware = Hardware::find($id);
+        return view('hardware.edit',compact('hardware'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHardwareRequest $request, Hardware $hardware)
+    public function update(Request $request, $id): RedirectResponse
     {
 			request()->validate([
 				'hardware_fecha' => 'required',
@@ -95,14 +105,15 @@ class HardwareController extends Controller
 				'hardware_bienes' => 'required',
 				'hardware_dependencia' => 'required',
 				'hardware_encargado' => 'required',
+                'hardware_cargoencargado' => 'required',
 				'hardware_equipo' => 'required',
 				'hardware_marca' => ' required',
 				'hardware_serial' => 'required',
 				'hardware_color' => 'required'
 		]);
 		$input = $request->all();
-		$hardares = Hardware::find($id);
-		$hardwares->update($input);
+		$hardware = Hardware::find($id);
+		$hardware->update($input);
 
 		return redirect()->route('hardware.index')->with('success','Mantenimiento actualizado con éxito!');
     }

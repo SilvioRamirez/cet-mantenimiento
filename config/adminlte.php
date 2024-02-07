@@ -130,9 +130,9 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-success',
-    'usermenu_image' => true,
+    'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
@@ -362,24 +362,12 @@ return [
             'icon' => 'fas fa-fw fa-users-cog',
             'can' => 'roles-list'
         ],
-        //[
-            //'text' => 'Reportes',
-            //'url'  => 'reportes',
-            //'icon' => 'fas fa-fw fa-book',
-            //'can' => 'reportes-list'
-       //],
-       // [
-            //'text' => 'Equipos',
-            //'url'  => 'equipos',
-            //'icon' => 'fas fa-fw fa-laptop',
-            //'can' => 'equipos-list'
-      //  ],
-      //  [
-            //'text' => 'Dependencias',
-            //'url'  => 'dependencia',
-            //'icon' => 'fas fa-fw fa-building',
-            //'can' => 'depen-list',
-       // ],
+        [
+            'text' => 'Dependencias',
+            'url'  => 'dependencia',
+            'icon' => 'fas fa-fw fa-building',
+            'can' => 'depen-list',
+        ],
         
     ],
 

@@ -29,9 +29,13 @@
                 		<strong>Dependencia:</strong>
                 		{{ $softwares->software_dependencia}}
             		</div>
-                    <div class="form-group">
+                <div class="form-group">
                 		<strong>Encargado:</strong>
                 		{{ $softwares->software_encargado}}
+            		</div>
+								<div class="form-group">
+                		<strong>Cargo del Encargado:</strong>
+                		{{ $softwares->software_cargoencargado}}
             		</div>
               </div>
               <div class="col">

@@ -17,7 +17,7 @@
     @include('fragment.error')
     @include('fragment.success')
 <br>
-<table class="table table-bordered">
+<table class="table table-bordered" width="100%">
         <thead>    
             <tr>
                 <th class="text-center" width="50px">N°</th>
@@ -32,15 +32,15 @@
      @foreach ($hardwares as $hardware)
      <tr>
          <td class="text-center">{{ ++$i }}</td>
-         <td class="text-center">{{ $hardware->hardware_fecha }}</td>
+         <td class="text-center">{{ $hardware->created_at}}</td>
          <td>{{ $hardware->hardware_funcionario }}</td>
          <td>{{ $hardware->hardware_dependencia}}</td>
          <td>{{ $hardware->hardware_equipo }}</td>
          <td class="text-center">{{ $hardware->hardware_bienes }}</td>
          <td class="text-center">
             <div class="btn-group" role="group" aria-label="Opciones">
-                @can('hardware-list')
-                    <a class="btn btn-outline-success btn-sm" href="#"><i class="fa fa-download"></i> {{ __('')}}</a>
+                @can('hardware-download')
+                    <a class="btn btn-outline-success btn-sm" href="{{ route('hardware.pdf',$hardware->id) }}"><i class="fa fa-download"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
                 @can('hardware-list')
                     <a class="btn btn-outline-primary btn-sm" href="{{ route('hardware.show',$hardware->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>

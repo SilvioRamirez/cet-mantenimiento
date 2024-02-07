@@ -22,18 +22,15 @@ class PermissionTableSeeder extends Seeder
             'user-create',
             'user-edit',
             'user-delete',
-            'depen-list',
-            'depen-create',
-            'depen-edit',
+            'depend-list',
+            'depend-create',
+            'depend-edit',
             'depend-delete',
-            'empleado-list',
-            'empleado-create',
-            'empleado-edit',
-            'empleado-delete',
             'hardware-list',
             'hardware-create',
             'hardware-edit',
             'hardware-delete',
+            'hardware-download',
             'hardwarecalendario-list',
             'hardwarecalendario-create',
             'hardwarecalendario-edit',
@@ -42,6 +39,7 @@ class PermissionTableSeeder extends Seeder
             'software-create',
             'software-edit',
             'software-delete',
+            'software-download',
             'softwarecalendario-list',
             'softwarecalendario-create',
             'softwarecalendario-edit',
@@ -49,7 +47,8 @@ class PermissionTableSeeder extends Seeder
             'informe-list',
             'informe-create',
             'informe-edit',
-            'informe-delete'
+            'informe-delete',
+            'informe-download'
          ];
          
          foreach ($permissions as $permission) {

@@ -13,41 +13,10 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
-            <strong>Encargado:</strong>
-            {!! Form::text('depen_empleado', null, array('placeholder' => __('Encargado'),'class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
-    <div class="form-group">
             <strong>N° Interno:</strong>
             {!! Form::text('depen_num_interno', null, array('placeholder' => __('Numero Interno'),'class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="form-group">
-            <strong>Nivel:</strong>
-            {!! Form::text('depen_nivel', null, array('placeholder' => __('Nivel'),'class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="form-group">
-            <strong>Piso:</strong>
-            {!! Form::text('depen_piso', null, array('placeholder' => __('Piso'),'class' => 'form-control')) !!}
-          </div>
-    </div>
-		<div class="col-xs-12 col-sm-12 col-md-4">
-			<div class="form-group">
-                <label>
-                    Status:
-                </label>
-                <div class="form-check">
-                    <input class="form-check-input" name="depen_status" type="checkbox" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Activo
-                    </label>
-                  </div>
-			</div>
-		</div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center"><br>
         {!! Form::button('<i class="fa fa-save"></i> '.__('Save'), ['type' => 'submit', 'class' => 'btn btn-outline-success'] )  !!}
     </div>

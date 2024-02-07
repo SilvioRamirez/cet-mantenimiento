@@ -16,6 +16,7 @@ class Software extends Model
         'software_bienes',
         'software_dependencia',
         'software_encargado',
+        'software_cargoencargado',
         'software_equipo',
         'software_marca',
         'software_serial',
@@ -31,4 +32,11 @@ class Software extends Model
         'software_desfragmentacion',
         'software_observacion'
     ];
+    public function getCreatedAtAttribute()
+
+    {   
+
+    return \Carbon\Carbon::parse($this->attributes['created_at'])->format('d-m-Y');
+
+    }
 }

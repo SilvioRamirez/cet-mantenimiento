@@ -7,12 +7,12 @@
 <div class="col-lg-12 margin-tb">
     @include('fragment.error')
     <div class="card border-light mb-3 shadow">
-        <div class="card-header bg-success text-white"><i class="fa fa-building"></i> 
+        <div class="card-header bg-success text-white"><i class="fa fa-memory"></i> 
             {{ __('Edit')}} Mantenimiento de Hardware
         </div>
         <div class="card-body">
 
-            {!! Form::model($hardwares, ['method' => 'PATCH','route' => ['hardware.update', $hardwares->id]]) !!}
+            {!! Form::model($hardware, ['method' => 'PATCH','route' => ['hardware.update', $hardware->id]]) !!}
                 @include('hardware.partials.form-edit')
             {!! Form::close() !!}
 

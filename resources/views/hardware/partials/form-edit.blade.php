@@ -15,182 +15,168 @@
 	<div class="col-xs-6 col-md-4">
 		<div class="form-group label-floating">
 			<label class="control-label">Cargo</label>
-			<input class="form-control" type="text" name="hardware_cargo">
+			{!! Form::text('hardware_cargo', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>
 </div>
 <br>
 <div class="row">
 	<legend><i class="fas fa-laptop"></i> &nbsp;Descripción del Equipo</legend>
-	<div class="col-xs-6 col-md-4">
+	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Código del Bien</label>
-			<input class="form-control" type="text" name="hardware_bienes">
+			{!! Form::text('hardware_bienes', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>								
-	<div class="col-xs-6 col-md-4">
+	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Dependencia</label>
-			<input class="form-control" type="text" name="hardware_dependencia">
+			{!! Form::text('hardware_dependencia', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>
-	<div class="col-xs-6 col-md-4">
+	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Encargado</label>
-			<input class="form-control" type="text" name="hardware_encargado">
+			{!! Form::text('hardware_encargado', null, array('class' => 'form-control')) !!}
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-3">
+		<div class="form-group label-floating">
+			<label class="control-label">Cargo del Encargado</label>
+			{!! Form::text('hardware_cargoencargado', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>						
 	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Equipo</label>
-			<input class="form-control" type="text" name="hardware_equipo">
+			{!! Form::text('hardware_equipo', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>								
 	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Marca</label>
-			<input class="form-control" type="text" name="hardware_marca">
+			{!! Form::text('hardware_marca', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Serial</label>
-			<input class="form-control" type="text" name="hardware_serial">
+			{!! Form::text('hardware_serial', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Color</label>
-			<input class="form-control" type="text" name="hardware_color">
+			{!! Form::text('hardware_color', null, array('class' => 'form-control')) !!}
 		</div>
 	</div>
 </div>	
 <br>
 <div class="row">
 	<legend><i class="fas fa-tools"></i> &nbsp;Tipo de Soporte Técnico</legend>
-	<div class="col-12 col-md-6">
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezacase" />
-  		<label class="form-check-label" for="hardware_limpiezacase">&nbsp; Limpieza de Case (Sopladora)</label>
-		</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezacase', '<strong>'."Limpieza de Case (Sopladora)".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezacase', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezacase' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezacasexterna', '<strong>'."Limpieza de Case (Externa)".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezacasexterna', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezacasexterna' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezamonitor', '<strong>'."Limpieza del Monitor".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezamonitor', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezamonitor' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezateclado', '<strong>'."Limpieza de Teclado".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezateclado', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezateclado' ]) !!}
+    </div>
+	</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezamouse', '<strong>'."Limpieza de Mouse".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezamouse', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezamouse' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezaimpresora', '<strong>'."Limpieza de Impresora".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezaimpresora', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezaimpresora' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezaprocesador', '<strong>'."Limpieza de Procesador".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezaprocesador', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezaprocesador' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezafuente', '<strong>'."Limpieza de Fuente de Poder".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezafuente', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezafuente' ]) !!}
+    </div>
+	</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezaelectronico', '<strong>'."Limpieza de Piezas Electrónica".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezaelectronico', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezaelectronico' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezaram', '<strong>'."Limpieza de Memoria Ram".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezaram', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezaram' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_limpiezacd', '<strong>'."Limpieza de Unidad CD/DVD".':</strong>')) !!}
+		{!! Form::select('hardware_limpiezacd', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_limpiezacd' ]) !!}
+    </div>
+	</div>
 	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezacasexterna" />
-  		<label class="form-check-label" for="hardware_limpiezacasexterna">&nbsp; Limpieza de Case (Externa)</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezamonitor" />
-  		<label class="form-check-label" for="hardware_limpiezamonitor">&nbsp; Limpieza del Monitor</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezateclado" />
-  		<label class="form-check-label" for="hardware_limpiezateclado">&nbsp; Limpieza de Teclado</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezamouse" />
-  		<label class="form-check-label" for="hardware_limpiezamouse">&nbsp; Limpieza de Mouse</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaimpresora" />
-  		<label class="form-check-label" for="hardware_limpiezaimpresora">&nbsp; Limpieza de Impresora</label>
+<div class="row">
+	<legend><i class="fas fa-memory"></i> &nbsp;Cambio de Componetes</legend>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_procesador', '<strong>'."Procesador".':</strong>')) !!}
+		{!! Form::select('hardware_procesador', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_procesador' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_tarjetamadre', '<strong>'."Tarjeta Madre".':</strong>')) !!}
+		{!! Form::select('hardware_tarjetamadre', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_tarjetamadre' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_memoria', '<strong>'."Memoria Ram".':</strong>')) !!}
+		{!! Form::select('hardware_memoria', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_memoria' ]) !!}
+    </div>
+	</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_hdd', '<strong>'."Disco Duro".':</strong>')) !!}
+		{!! Form::select('hardware_hdd', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_hdd' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_cd', '<strong>'."Unidad de CD".':</strong>')) !!}
+		{!! Form::select('hardware_cd', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_cd' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_dvd', '<strong>'."Unidad de DVD".':</strong>')) !!}
+		{!! Form::select('hardware_dvd', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_dvd' ]) !!}
 		</div>
 	</div>
-	<div class="col-12 col-md-6">
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaprocesador" />
-  										<label class="form-check-label" for="hardware_limpiezaprocesador">&nbsp; Limpieza del Procesador</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezafuente" />
-  										<label class="form-check-label" for="hardware_limpiezafuente">&nbsp; Limpieza de Fuente de Poder</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaelectronico" />
-  										<label class="form-check-label" for="hardware_limpiezaelectronico">&nbsp; Limpieza de Piezas Electrónica</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaram" />
-  										<label class="form-check-label" for="hardware_limpiezaram">&nbsp; Limpieza de Memoria Ram</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezacd" />
-  										<label class="form-check-label" for="hardware_limpiezacd">&nbsp; Limpieza de Unidad CD/DVD</label>
-									</div>
-							</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_fuente_poder', '<strong>'."Fuente de Poder".':</strong>')) !!}
+		{!! Form::select('hardware_fuente_poder', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_fuente_poder' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_faja_cable', '<strong>'."Faja / Cable".':</strong>')) !!}
+		{!! Form::select('hardware_faja_cable', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_faja_cable' ]) !!}
+    </div>
+		<div class="form-group">
+		{!! Html::decode(Form::label('hardware_pila', '<strong>'."Pila".':</strong>')) !!}
+		{!! Form::select('hardware_pila', ['si'=>'si','no'=>'no'], null, ['class' => 'form-control', 'id' =>'hardware_pila' ]) !!}
+    </div>
 	</div>
-								<br>
-
-								<div class="row">
-									<legend><i class="fas fa-memory"></i> &nbsp;Cambio de Componetes</legend>
-																	<div class="col-12 col-md-4">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_procesador" />
-										<label class="form-check-label" for="hardware_procesador">&nbsp; Procesador</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_tarjetamadre" />
-										<label class="form-check-label" for="hardware_tarjetamadre">&nbsp; Tarjeta Madre</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_memoria" />
-										<label class="form-check-label" for="hardware_memoria">&nbsp; Memoria</label>
-									</div>
-								</div>
-
-								<div class="col-12 col-md-4">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_hdd" />
-										<label class="form-check-label" for="hardware_hdd">&nbsp; Disco Duro</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_cd" />
-										<label class="form-check-label" for="hardware_cd">&nbsp; Unidad de CD</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_dvd" />
-										<label class="form-check-label" for="hardware_dvd">&nbsp; Unidad de DVD</label>
-									</div>
-								</div>
-
-								<div class="col-12 col-md-4">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_fuente_poder" />
-										<label class="form-check-label" for="hardware_fuente_poder">&nbsp; Fuente de Poder</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_faja_cable" />
-										<label class="form-check-label" for="hardware_faja_cable">&nbsp; Fajas / Cable</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_pila" />
-										<label class="form-check-label" for="hardware_pila">&nbsp; Pila</label>
-									</div>
-									<br>
-								</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<div class="form-group label-floating">
-											<label class="control-label">Observación</label>
-											 	<textarea class="form-control" name="hardware_observacion"placeholder="Deja una observación aquí"></textarea>
-
-										</div>
-									</div>
-								</div>
-                                <div class="col-xs-12 col-sm-12 col-md-12 text-center"><br>
-        {!! Form::button('<i class="fa fa-save"></i> '.__('Save'), ['type' => 'submit', 'class' => 'btn btn-outline-success'] )  !!}
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<div class="form-group label-floating">
+		{!! Form::textarea('hardware_observacion', null, array('class' => 'form-control')) !!}
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 text-center"><br>
+    {!! Form::button('<i class="fa fa-save"></i> '.__('Save'), ['type' => 'submit', 'class' => 'btn btn-outline-success'] )  !!}
 </div>

@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('informe_falla');
             $table->string('informe_diagnostico');
             $table->string('informe_trabajo_realizado');
-            $table->string('informe_observaciones');
-            $table->string('informe_recomendaciones');
+            $table->string('informe_observaciones')->nullable();
+            $table->string('informe_recomendaciones')->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,6 @@
             <tr>
                 <th class="text-center" width="50px">N°</th>
                 <th>{{__('Name')}}</th>
-                <th>Encargado</th>
                 <th>Abreviación</th>
                 <th>N° Interno</th>
                 <th class="text-center" width="280px">{{__('Action')}}</th>
@@ -32,18 +31,17 @@
      <tr>
          <td class="text-center">{{ ++$i }}</td>
          <td>{{ $dependencia->depen_nombre }}</td>
-         <td>{{ $dependencia->depen_empleado }}</td>
          <td>{{ $dependencia->depen_abreviacion}}</td>
          <td>{{ $dependencia->depen_num_interno }}</td>
          <td class="text-center">
             <div class="btn-group" role="group" aria-label="Opciones">
-                @can('depen-list')
+                @can('depend-list')
                     <a class="btn btn-outline-primary btn-sm" href="{{ route('dependencia.show',$dependencia->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
-                @can('depen-edit')
+                @can('depend-edit')
                     <a class="btn btn-outline-success btn-sm" href="{{ route('dependencia.edit',$dependencia->id) }}"><i class="fa fa-edit"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
-                @can('depen-delete')
+                @can('depend-delete')
                     <a class="btn btn-outline-danger btn-sm" href="{{ route('dependencia.delete',$dependencia->id) }}"><i class="fa fa-trash"></i> {{ __('')}}</a>
                 @endcan
             </div>
@@ -53,4 +51,9 @@
     </table>
     {!! $dependencias->links() !!}
 
+    @push('js')
+        <script>
+            
+        </script>
+    @endpush
 @endsection

@@ -15,7 +15,7 @@ class Dependencia extends Model
      * @var array
      */
     protected $fillable = [
-        'depen_nombre', 'depen_num_interno', 'depen_nivel', 'depen_piso', 'depen_abreviacion', 'depen_empleado', 'depen_status'
+        'depen_nombre', 'depen_num_interno', 'depen_abreviacion'
     ];
 
     //Define las relaciones a la inversa ->las que tiene dependencia con usuario

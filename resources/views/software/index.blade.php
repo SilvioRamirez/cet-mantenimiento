@@ -32,15 +32,15 @@
      @foreach ($softwares as $software)
      <tr>
          <td class="text-center">{{ ++$i }}</td>
-         <td class="text-center">{{ $software->software_fecha }}</td>
+         <td class="text-center">{{ $software->software_fecha}}</td>
          <td>{{ $software->software_funcionario }}</td>
          <td>{{ $software->software_dependencia}}</td>
          <td>{{ $software->software_equipo }}</td>
          <td class="text-center">{{ $software->software_bienes }}</td>
          <td class="text-center">
             <div class="btn-group" role="group" aria-label="Opciones">
-            @can('software-list')
-                    <a class="btn btn-outline-success btn-sm" href="#"><i class="fa fa-download"></i> {{ __('')}}</a>
+                @can('software-download')
+                    <a class="btn btn-outline-success btn-sm" href="{{ route('software.pdf',$software->id) }}"><i class="fa fa-download"></i> {{ __('')}}</a>
                 @endcan&nbsp;&nbsp;
                 @can('software-list')
                     <a class="btn btn-outline-primary btn-sm" href="{{ route('software.show',$software->id) }}"><i class="fa fa-eye"></i> {{ __('')}}</a>

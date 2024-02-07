@@ -15,14 +15,14 @@
         </div>
     </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
         <div class="col-6">
             <x-adminlte-small-box title="528" text="Hardware" icon="fas fa-memory text-white" theme="dark" url="hardware" url-text="ver todo los mantenimientos"/>
         </div>
         <div class="col-6">
             <x-adminlte-small-box title="528" text="Software" icon="fas fa-microchip text-white" theme="success" url="software" url-text="ver todo los mantenimientos"/>
         </div>
-    </div>
+    </div>-->
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">

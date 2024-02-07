@@ -22,22 +22,28 @@
 <br>
 <div class="row">
 	<legend><i class="fas fa-laptop"></i> &nbsp;Descripción del Equipo</legend>
-	<div class="col-xs-6 col-md-4">
+	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Código del Bien</label>
 			<input class="form-control" type="text" name="hardware_bienes">
 		</div>
 	</div>								
-	<div class="col-xs-6 col-md-4">
+	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Dependencia</label>
 			<input class="form-control" type="text" name="hardware_dependencia">
 		</div>
 	</div>
-	<div class="col-xs-6 col-md-4">
+	<div class="col-xs-6 col-md-3">
 		<div class="form-group label-floating">
 			<label class="control-label">Encargado</label>
 			<input class="form-control" type="text" name="hardware_encargado">
+		</div>
+	</div>
+	<div class="col-xs-6 col-md-3">
+		<div class="form-group label-floating">
+			<label class="control-label">Cargo del Encargado</label>
+			<input class="form-control" type="text" name="hardware_cargoencargado">
 		</div>
 	</div>						
 	<div class="col-xs-6 col-md-3">
@@ -68,129 +74,191 @@
 <br>
 <div class="row">
 	<legend><i class="fas fa-tools"></i> &nbsp;Tipo de Soporte Técnico</legend>
-	<div class="col-12 col-md-6">
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezacase" />
-  		<label class="form-check-label" for="hardware_limpiezacase">&nbsp; Limpieza de Case (Sopladora)</label>
-		</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+      <label for="hardware_limpiezacase">Limpieza de Case (Sopladora)</label>                
+      	<select id="hardware_limpiezacase" name="hardware_limpiezacase" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    </div>
+		<div class="form-group">
+      <label for="hardware_limpiezacasexterna">Limpieza de Case (Externa)</label>                
+      	<select id="hardware_limpiezacasexterna" name="hardware_limpiezacasexterna" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    </div>
+		<div class="form-group">
+      <label for="hardware_limpiezamonitor">Limpieza del Monitor</label>                
+      	<select id="hardware_limpiezamonitor" name="hardware_limpiezamonitor" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    </div>
+		<div class="form-group">
+      <label for="hardware_limpiezateclado">Limpieza de Teclado</label>                
+      	<select id="hardware_limpiezateclado" name="hardware_limpiezateclado" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    </div>
+		
+	</div>
+	<div class="col-12 col-md-4">
+		<div class="form-group">
+      	<label for="hardware_limpiezamouse">Limpieza de Mouse</label>                
+      	<select id="hardware_limpiezamouse" name="hardware_limpiezamouse" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+			<div class="form-group">
+      	<label for="hardware_limpiezaimpresora">Limpieza de Impresora</label>                
+      	<select id="hardware_limpiezaimpresora" name="hardware_limpiezaimpresora" class="form-select">
+        	<option  disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+			<div class="form-group">
+      	<label for="hardware_limpiezaprocesador">Limpieza de Procesador</label>                
+      	<select id="hardware_limpiezaprocesador" name="hardware_limpiezaprocesador" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+			<div class="form-group">
+      	<label for="hardware_limpiezafuente">Limpieza de Fuente de Poder</label>                
+      	<select id="hardware_limpiezafuente" name="hardware_limpiezafuente" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+	</div>
+	<div class="col-12 col-md-4">
+			<div class="form-group">
+      	<label for="hardware_limpiezaelectronico">Limpieza de Piezas Electrónica</label>                
+      	<select id="hardware_limpiezaelectronico" name="hardware_limpiezaelectronico" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+			<div class="form-group">
+      	<label for="hardware_limpiezaram">Limpieza de Memoria Ram</label>                
+      	<select id="hardware_limpiezaram" name="hardware_limpiezaram" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+			<div class="form-group">
+      	<label for="hardware_limpiezacd">Limpieza de Unidad CD/DVD</label>                
+      	<select id="hardware_limpiezacd" name="hardware_limpiezacd" class="form-select">
+        	<option disabled selected="">Seleccione</option>
+					<option value="si">Sí</option>
+					<option value="no">No</option>
+      	</select>
+    	</div>
+	</div>
 	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezacasexterna" />
-  		<label class="form-check-label" for="hardware_limpiezacasexterna">&nbsp; Limpieza de Case (Externa)</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezamonitor" />
-  		<label class="form-check-label" for="hardware_limpiezamonitor">&nbsp; Limpieza del Monitor</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezateclado" />
-  		<label class="form-check-label" for="hardware_limpiezateclado">&nbsp; Limpieza de Teclado</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezamouse" />
-  		<label class="form-check-label" for="hardware_limpiezamouse">&nbsp; Limpieza de Mouse</label>
-		</div>
-	<br>
-		<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaimpresora" />
-  		<label class="form-check-label" for="hardware_limpiezaimpresora">&nbsp; Limpieza de Impresora</label>
+	<div class="row">
+		<legend><i class="fas fa-memory"></i> &nbsp;Cambio de Componetes</legend>
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+      		<label for="hardware_procesador">Procesador</label>                
+      			<select id="hardware_procesador" name="hardware_procesador" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+				<div class="form-group">
+      		<label for="hardware_tarjetamadre">Tarjeta Madre</label>                
+      			<select id="hardware_tarjetamadre" name="hardware_tarjetamadre" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+				<div class="form-group">
+      		<label for="hardware_memoria">Memoria Ram</label>                
+      			<select id="hardware_memoria" name="hardware_memoria" class="form-select">
+        		<option  disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+			</div>
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+      		<label for="hardware_hdd">Disco Duro</label>                
+      			<select id="hardware_hdd" name="hardware_hdd" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+				<div class="form-group">
+      		<label for="hardware_cd">Unidad de CD</label>                
+      			<select id="hardware_cd" name="hardware_cd" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+				<div class="form-group">
+      		<label for="hardware_dvd">Unidad de DVD</label>                
+      			<select id="hardware_dvd" name="hardware_dvd" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+			</div>
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+      		<label for="hardware_fuente_poder">Fuente de Poder</label>                
+      			<select id="hardware_fuente_poder" name="hardware_fuente_poder" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+				<div class="form-group">
+      		<label for="hardware_faja_cable">Faja / Cable</label>                
+      			<select id="hardware_faja_cable" name="hardware_faja_cable" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+				<div class="form-group">
+      		<label for="hardware_pila">Pila</label>                
+      			<select id="hardware_pila" name="hardware_pila" class="form-select">
+        		<option disabled selected="">Seleccione</option>
+						<option value="si">Sí</option>
+						<option value="no">No</option>
+      		</select>
+    		</div>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="form-group label-floating">
+				<label class="control-label">Observación</label>
+				<textarea class="form-control" name="hardware_observacion"placeholder="Deja una observación aquí"></textarea>
+			</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-6">
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaprocesador" />
-  										<label class="form-check-label" for="hardware_limpiezaprocesador">&nbsp; Limpieza del Procesador</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezafuente" />
-  										<label class="form-check-label" for="hardware_limpiezafuente">&nbsp; Limpieza de Fuente de Poder</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaelectronico" />
-  										<label class="form-check-label" for="hardware_limpiezaelectronico">&nbsp; Limpieza de Piezas Electrónica</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezaram" />
-  										<label class="form-check-label" for="hardware_limpiezaram">&nbsp; Limpieza de Memoria Ram</label>
-									</div>
-									<br>
-									<div class="form-check">
-  										<input class="form-check-input" type="checkbox" value="" id="hardware_limpiezacd" />
-  										<label class="form-check-label" for="hardware_limpiezacd">&nbsp; Limpieza de Unidad CD/DVD</label>
-									</div>
-							</div>
-	</div>
-								<br>
-
-								<div class="row">
-									<legend><i class="fas fa-memory"></i> &nbsp;Cambio de Componetes</legend>
-																	<div class="col-12 col-md-4">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_procesador" />
-										<label class="form-check-label" for="hardware_procesador">&nbsp; Procesador</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_tarjetamadre" />
-										<label class="form-check-label" for="hardware_tarjetamadre">&nbsp; Tarjeta Madre</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_memoria" />
-										<label class="form-check-label" for="hardware_memoria">&nbsp; Memoria</label>
-									</div>
-								</div>
-
-								<div class="col-12 col-md-4">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_hdd" />
-										<label class="form-check-label" for="hardware_hdd">&nbsp; Disco Duro</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_cd" />
-										<label class="form-check-label" for="hardware_cd">&nbsp; Unidad de CD</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_dvd" />
-										<label class="form-check-label" for="hardware_dvd">&nbsp; Unidad de DVD</label>
-									</div>
-								</div>
-
-								<div class="col-12 col-md-4">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_fuente_poder" />
-										<label class="form-check-label" for="hardware_fuente_poder">&nbsp; Fuente de Poder</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_faja_cable" />
-										<label class="form-check-label" for="hardware_faja_cable">&nbsp; Fajas / Cable</label>
-									</div>
-									<br>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="hardware_pila" />
-										<label class="form-check-label" for="hardware_pila">&nbsp; Pila</label>
-									</div>
-									<br>
-								</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<div class="form-group label-floating">
-											<label class="control-label">Observación</label>
-											 	<textarea class="form-control" name="hardware_observacion"placeholder="Deja una observación aquí"></textarea>
-
-										</div>
-									</div>
-								</div>
-                                <div class="col-xs-12 col-sm-12 col-md-12 text-center"><br>
+  <div class="col-xs-12 col-sm-12 col-md-12 text-center"><br>
         {!! Form::button('<i class="fa fa-save"></i> '.__('Save'), ['type' => 'submit', 'class' => 'btn btn-outline-success'] )  !!}
-</div>
+	</div>

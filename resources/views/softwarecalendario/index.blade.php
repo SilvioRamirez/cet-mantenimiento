@@ -7,9 +7,6 @@
             </div><br>
         </div>
     </div>
-    <div class="row">
-      <button class="btn btn-primary" id="iniciarCalendario" onclick="iniciarCalendario()">Iniciar</button>
-    </div>
       <!-- fullcalendar -->    
         <div class="container">
             <div class="row">
@@ -49,16 +46,12 @@
                 <input type="date" class="form-control" name="end" id="end" hidden="true" placeholder="Ingrese la Fecha de Finalizado">
             </div>
             <div class="form-group">
-              <p class="" id="duracion">xd</p>
+              <p id="duracion"></p>
             </div>
           </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-success" id="btnGuardar"><i class="fa fa-save fa-fw"></i>Guardar</button>
-        &nbsp;
-        <button type="button" class="btn btn-outline-info" id="btnModificar"><i class="fa fa-edit fa-fw"></i>Editar</button>
-        &nbsp;
-        <button type="button" class="btn btn-outline-danger" id="btnEliminar"><i class="fa fa-trash fa-fw"></i>Eliminar</button>
       </div>
     </div>
   </div>
@@ -66,10 +59,6 @@
 @endsection
 
 @push('js')
-
-{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/locales-all.js"></script> --}}
 
 <script src="storage/js/index.global.min.js"></script>
 <script src="storage/js/es.global.min.js"></script>
@@ -152,7 +141,8 @@ var calendarEl = document.getElementById('calendariosoftware');
           locale: 'es',
 
           select: function(event, delta){
-              duracion = document.getElementById('duracion');
+            loadLista();
+            duracion = document.getElementById('duracion');
               duracion.innerHTML = 'Empieza: <b>' + event.startStr + '</b> - Finaliza: <b>' + event.endStr + '</b>';
               $("#evento").modal("show");
               document.getElementById('start').value = event.startStr;
@@ -221,16 +211,16 @@ var calendarEl = document.getElementById('calendariosoftware');
         /* Funcion Para guardar el formulario de nuevo evento */
         document.getElementById("btnGuardar").addEventListener("click",function(){
             const datos= new FormData(formulario);
-            var url = '/softwarecalendario/store';
+            var url = '/softwarecalendario/store_ajax';
             axios.post(url, datos).then(response => {
                   let status = response.data.status;
                   let message = response.data.message;
                   alert (message, status);
                   $('#evento').modal('hide');
+                  calendar.refetchEvents();
                   var sel = document.getElementById('title')
                   sel.empty();
                   //Actualiza los eventos del calendario
-                  calendar.refetchEvents();
                   document.getElementById('eventForm').reset();
             }).catch(error => {                  
                   if(error.response){

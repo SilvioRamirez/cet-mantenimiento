@@ -27,7 +27,16 @@ class InformesTecnicos extends Model
         'informe_diagnostico',
         'informe_trabajo_realizado',
         'informe_observaciones',
-        'informe_recomendaciones',
+        'informe_recomendaciones',  
     ];
+    
+
+    public function getCreatedAtAttribute()
+
+    {   
+
+    return \Carbon\Carbon::parse($this->attributes['created_at'])->format('d-m-Y');
+
+    }
 
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateSoftwareRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class SoftwareController extends Controller
 {
@@ -28,14 +29,17 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        $softwares = Software::paginate(5);
+        $softwares = Software::latest()->paginate(10);
         return view('software.index',compact('softwares'))
-        ->with('i', (request()->input('page', 1) - 1) * $softwares->perPage()); 
+        ->with('i', (request()->input('page', 1) - 1) * 10); 
     }
-    public function pdf(){
-        
-        $pdf = Pdf::loadView('pdf.invoice', $data);
-        return $pdf->download('invoice.pdf');
+    public function pdf($id)
+    {
+        $image = '/img/logo.png';
+        $software = Software::find($id);
+        $pdf = Pdf::loadView('software.pdf', compact('software','image'));
+        return $pdf->stream();
+
     }
     /**
      * Show the form for creating a new resource.
@@ -56,6 +60,7 @@ class SoftwareController extends Controller
             'software_cargo' => 'required',
             'software_bienes' => 'required',
             'software_dependencia' => 'required',
+            'software_cargoencargado' => 'required',
             'software_encargado' => 'required',
             'software_equipo' => 'required',
             'software_marca' => ' required',
@@ -88,7 +93,7 @@ class SoftwareController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSoftwareRequest $request, Software $software)
+    public function update(Request $request, $id): RedirectResponse
     {
         request()->validate([
             'software_fecha' => 'required',
@@ -96,6 +101,7 @@ class SoftwareController extends Controller
             'software_cargo' => 'required',
             'software_bienes' => 'required',
             'software_dependencia' => 'required',
+            'software_cargoencargado' => 'required',
             'software_encargado' => 'required',
             'software_equipo' => 'required',
             'software_marca' => ' required',

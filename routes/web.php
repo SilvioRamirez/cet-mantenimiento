@@ -1,14 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DependenciaController;
-use App\Http\Controllers\EmpleadosController;
-use App\Http\Controllers\EquiposController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\HardwareCalendarioController;
 use App\Http\Controllers\SoftwareController;
@@ -45,48 +41,36 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/users/{user}/delete', [UserController::class, 'delete'])->name('users.delete');
     Route::resource('users', UserController::class);
 
-    //Rutas de Productos
-    //Route::get('/products/{product}/delete', [ProductController::class, 'delete'])->name('products.delete');
-    //Route::resource('products', ProductController::class);
-
     //Rutas de Dependencias
-    //Route::get('/dependencia/{dependencia}/delete',[DependenciaController::class, 'delete'])->name('dependencia.delete');
-    //Route::resource('dependencia', DependenciaController::class);
-    
+    Route::get('/dependencia/{dependencia}/delete',[DependenciaController::class, 'delete'])->name('dependencia.delete');
     Route::get('/dependencia/list',[DependenciaController::class, 'list'])->name('dependencia.list');
-
-    //Rutas de Empleados
-    //Route::get('/empleados/{empleados}/delete',[EmpleadosController::class, 'delete'])->name('empleados.delete');
-    //Route::resource('empleados', EmpleadosController::class);
-
-    //Rutas de Equipos
-    //Route::get('/equipos/{equipos}/delete',[EquiposController::class, 'delete'])->name('equipos.delete');
-    //Route::resource('equipos', EquiposController::class);
+    Route::resource('dependencia', DependenciaController::class);
     
     //Rutas de Hardware
     Route::get('/hardware/{hardware}/delete',[HardwareController::class, 'delete'])->name('hardware.delete');
+    Route::get('/hardware/{hardware}/pdf', [HardwareController::class, 'pdf'])->name('hardware.pdf');
     Route::resource('hardware', HardwareController::class);
 
-    //Rutas de Hardware
-    Route::get('/hardwarecalendario/{hardwarecalendario}/delete',[HardwareCalendarioController::class, 'delete'])->name('hardwarecalendario.delete');
+    //Rutas de Hardware Calendario
+    Route::post('/hardwarecalendario/store_ajax',[HardwareCalendarioController::class, 'store'])->name('hardwarecalendario.store.ajax');
+    Route::get('calendar-event-hardware', [HardwareCalendarioController::class, 'events']);
+    Route::post('calendar-crud-ajax-hardware', [HardwareCalendarioController::class, 'calendarEvents']);
     Route::resource('hardwarecalendario', HardwareCalendarioController::class);
 
     //Rutas de Software
     Route::get('/software/{software}/delete',[SoftwareController::class, 'delete'])->name('software.delete');
+    Route::get('/software/{software}/pdf', [SoftwareController::class, 'pdf'])->name('software.pdf');
     Route::resource('software', SoftwareController::class);
-    //Rutas de Software PDF
-    Route::get('/software/pdf', [SoftwareController::class, 'pdf'])->name('software.pdf');
+    
     //Rutas de Software Calendario
-    Route::post('/softwarecalendario/store',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store');
-    //Route::get('/softwarecalendario/events', [CalenderController::class, 'events']);
-
+    Route::post('/softwarecalendario/store_ajax',[SoftwareCalendarioController::class, 'store'])->name('softwarecalendario.store.ajax');
     Route::get('calendar-event', [SoftwareCalendarioController::class, 'events']);
     Route::post('calendar-crud-ajax', [SoftwareCalendarioController::class, 'calendarEvents']);
-
     Route::resource('softwarecalendario', SoftwareCalendarioController::class);
     
     //Rutas de Informe Tecnico
     Route::get('/informe/{informe}/delete',[InformesTecnicosController::class, 'delete'])->name('informe.delete');
+    Route::get('/informe/{informe}/pdf', [InformesTecnicosController::class, 'pdf'])->name('informe.pdf');
     Route::resource('informe', InformesTecnicosController::class);
     
 });

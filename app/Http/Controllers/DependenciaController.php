@@ -31,9 +31,9 @@ class DependenciaController extends Controller
      */
     public function index(): View
     {
-        $dependencias = Dependencia::latest()->paginate(5);
+        $dependencias = Dependencia::latest()->paginate(10);
         return view('dependencia.index',compact('dependencias'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -68,11 +68,8 @@ class DependenciaController extends Controller
         request()->validate([
 					'depen_nombre' => 'required',
 					'depen_num_interno' => 'required',
-					'depen_nivel' => 'required',
-					'depen_piso' => 'required',
-					'depen_abreviacion' => 'required',
-					'depen_empleado' => 'required',
-					'depen_status' => 'required',
+					
+					'depen_abreviacion' => 'required'
         ]);
     
         Dependencia::create($request->all());
@@ -106,10 +103,7 @@ class DependenciaController extends Controller
         $this->validate($request, [
             'depen_nombre' => 'required',
             'depen_num_interno' => 'required',
-			'depen_nivel' => 'required',
-			'depen_piso' => 'required',
-			'depen_abreviacion' => 'required',
-			'depen_empleado' => 'required'
+			'depen_abreviacion' => 'required'
             
         ]);
     

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\HardwareCalendario;
 use App\Http\Requests\StoreHardwareCalendarioRequest;
 use App\Http\Requests\UpdateHardwareCalendarioRequest;
+use Carbon\Carbon;
+
+use Illuminate\Http\Request;
 
 class HardwareCalendarioController extends Controller
 {
@@ -26,17 +29,61 @@ class HardwareCalendarioController extends Controller
      */
     public function index()
     {
-        $hardwarecalendario = HardwareCalendario::latest()->paginate(5);
-        return view('hardwarecalendario.index',compact('hardwarecalendario'))
-        ->with('i', (request()->input('page', 1) - 1) * 5); 
+        return view('hardwarecalendario.index');
+    }
+    public function events(Request $request)
+    {
+        $data = HardwareCalendario::whereDate('start', '>=', $request->start)
+            ->whereDate('end',   '<=', $request->end)
+            ->get(['id', 'title', 'descripcion', 'start', 'end']);
+        return response()->json($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function calendarEvents(Request $request)
     {
-        //
+        switch ($request->type) {
+            case 'edit':
+                if (request()->validate(HardwareCalendario::$rules)){
+                    if ($query=HardwareCalendario::find($request->id)) {
+
+                        $input = $request->all();
+                        $query->update($input);
+
+                        return response()->json([
+                            'status' => 'OK',
+                            'message' => 'Datos actualizados correctamente.',
+                            'cod' => 201
+                        ]);
+
+                    } else {
+                        return response()->json([
+                            'status' => 'Error',
+                            'message' => 'Ocurrio un error al actualizar la información.',
+                            'cod' => 400
+                        ]);
+                    }
+                }
+
+            case 'delete':
+                
+                if ($query=HardwareCalendario::find($request->id)) {
+                    $query->delete();
+                    return response()->json([
+                        'status' => 'OK',
+                        'message' => 'Datos eliminados correctamente.',
+                        'cod' => 201
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => 'Error',
+                        'message' => 'Ocurrio un error al eliminar la información.',
+                        'cod' => 400
+                    ]);
+                }
+            default:
+                # ...
+                break;
+        }
     }
 
     /**
@@ -44,38 +91,20 @@ class HardwareCalendarioController extends Controller
      */
     public function store(StoreHardwareCalendarioRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(HardwareCalendario $hardwareCalendario)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(HardwareCalendario $hardwareCalendario)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateHardwareCalendarioRequest $request, HardwareCalendario $hardwareCalendario)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(HardwareCalendario $hardwareCalendario)
-    {
-        //
+        if (request()->validate(HardwareCalendario::$rules)){
+            if (HardwareCalendario::create($request->all())) {
+                return response()->json([
+                    'status' => 'OK',
+                    'message' => 'Datos agregados correctamente.',
+                    'cod' => 201
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'Error',
+                    'message' => 'Ocurrio un error al registrar la información.',
+                    'cod' => 400
+                ]);
+            }
+        }
     }
 }
